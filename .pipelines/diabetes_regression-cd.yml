@@ -29,16 +29,16 @@ variables:
 - group: mlops-test
 
 stages:
-- stage: 'Deploy_ACI'
-  displayName: 'Deploy to ACI'
+- stage: 'Deploy_ACI_Dev'
+  displayName: 'Deploy to ACI to Dev'
   condition: variables['ACI_DEPLOYMENT_NAME']
   jobs:
   # - job: "Deploy_ACI"
-  - deployment: "Deploy_ACI"
-    displayName: "Deploy to ACI"
+  - deployment: "Deploy_ACI_Dev"
+    displayName: "Deploy to ACI to Dev"
     container: mlops
     timeoutInMinutes: 0
-    environment: 'teste'
+    environment: 'dev'
     strategy:
       runOnce:
         deploy:         
@@ -79,6 +79,7 @@ stages:
                 set -e # fail on error
                 export SUBSCRIPTION_ID=$(az account show --query id -o tsv)
                 python -m ml_service.util.smoke_test_scoring_service --type ACI --service "$(ACI_DEPLOYMENT_NAME)"
+
 
 - stage: 'Deploy_AKS'
   displayName: 'Deploy to AKS'
