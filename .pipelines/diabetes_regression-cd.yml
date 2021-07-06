@@ -48,6 +48,15 @@ stages:
               projectId: '$(resources.pipeline.model-train-ci.projectID)'
               pipelineId: '$(resources.pipeline.model-train-ci.pipelineID)'
               artifactBuildId: ${{ parameters.artifactBuildId }}
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: |
+                # Write your commands here
+                echo 'Hello world'
+                echo 'ACI_DEPLOYMENT_NAME_DEV' : $(ACI_DEPLOYMENT_NAME_DEV)
+                echo "==================="
+                echo 'model' : '$(MODEL_NAME):$(get_model.MODEL_VERSION)' 
           - task: AzureCLI@1
             displayName: 'Install AzureML CLI'
             inputs:
