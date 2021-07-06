@@ -81,7 +81,7 @@ stages:
 
 - stage: 'Deploy_ACI_tST'
   displayName: 'Deploy to ACI to tST'
-  condition: variables['ACI_DEPLOYMENT_NAME_TST']
+  condition: and(succeeded('Deploy_ACI_Dev'), variables['ACI_DEPLOYMENT_NAME_TST'])
   jobs:
   # - job: "Deploy_ACI"
   - deployment: "Deploy_ACI_Tst"
