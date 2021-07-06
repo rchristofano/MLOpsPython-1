@@ -58,7 +58,7 @@ stages:
                 echo "==================="
                 echo 'model' : '$(MODEL_NAME):$(get_model.MODEL_VERSION)' 
                 echo '$(Build.SourcesDirectory)/$(SOURCES_DIR_TRAIN)'
-                echo "fim"
+                echo "fim 1"
           - task: AzureCLI@1
             displayName: 'Install AzureML CLI'
             inputs:
