@@ -132,7 +132,7 @@ stages:
 
 - stage: 'Deploy_AKS'
   displayName: 'Deploy to AKS'
-  dependsOn: Deploy_ACI
+  dependsOn: Deploy_ACI_Tst
   condition: and(succeeded(), variables['AKS_DEPLOYMENT_NAME'])
   jobs:
   - job: "Deploy_AKS"
