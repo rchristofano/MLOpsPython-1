@@ -57,6 +57,7 @@ stages:
                 echo 'ACI_DEPLOYMENT_NAME_DEV' : $(ACI_DEPLOYMENT_NAME_DEV)
                 echo "==================="
                 echo 'model' : '$(MODEL_NAME):$(get_model.MODEL_VERSION)' 
+                echo '$(Build.SourcesDirectory)/$(SOURCES_DIR_TRAIN)''
           - task: AzureCLI@1
             displayName: 'Install AzureML CLI'
             inputs:
