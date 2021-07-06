@@ -30,7 +30,7 @@ variables:
 stages:
 - stage: 'Deploy_ACI_Dev'
   displayName: 'Deploy to ACI to Dev'
-  condition: variables['ACI_DEPLOYMENT_NAME_DEV']
+  condition: variables['ACI_DEPLOYMENT_NAME']
   jobs:
   # - job: "Deploy_ACI"
   - deployment: "Deploy_ACI_Dev"
